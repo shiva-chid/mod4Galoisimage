@@ -99,9 +99,3 @@ function find_mod4image(C);
 end function;
 
 
-/*
-Example
-
-R<x> := PolynomialRing(Rationals()); C := HyperellipticCurve(R![-1, 1, -1, -2, 2, -2, -1], R![1]);
-find_mod4image(C);
-*/
