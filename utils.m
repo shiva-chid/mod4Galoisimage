@@ -102,6 +102,9 @@ function Vr(a,r);
     return ans;
 end function;
 
+function zeros(n);
+    return [0 : i in [1..n]];
+end function;
 
 intrinsic orderofkernelofredmod2(C :: CrvHyp) -> RngIntElt
 {returns the F_2-dimension of the kernel of the reduction map from mod-4 Galois image to mod-2 Galois image}
@@ -428,7 +431,7 @@ defining fields of these 4 points as extensions over the 2-torsion field.}
     f := HyperellipticPolynomials(C1);
     roo := Roots(f);
     if #roo ge 1 then
-	newf := monicquinticmodel(f, roo[1,1]);
+	newf := monicquinticmodel(f : alp := roo[1,1]);
 	C2 := HyperellipticCurveOfGenus(2,newf);
 	K := SplittingField(f);
 	FintoK := hom<Rationals() -> K |>;
@@ -436,7 +439,7 @@ defining fields of these 4 points as extensions over the 2-torsion field.}
     else
 	Fac := Factorisation(f);
 	F<alp> := NumberField(Fac[1,1]);
-	newf := monicquinticmodel(ChangeRing(f,F), alp);
+	newf := monicquinticmodel(ChangeRing(f,F) : alp := alp);
 	C2 := HyperellipticCurveOfGenus(2,newf);
 	K, roos := SplittingField([h[1] : h in Fac]);
 	FintoK := hom<F -> K | roos[1][1]>;
