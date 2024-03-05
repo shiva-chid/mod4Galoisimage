@@ -419,10 +419,10 @@ end intrinsic;
 
 intrinsic mod4imageovertwotorsionfield(C :: CrvHyp) -> GrpMat, Tup, SeqEnum
 {returns the mod-4 Galois image of Jacobian of C over the two-torsion field,
-as a subgroup of ker (GSp(4,Z/4) ---> GSp(4,Z/2)).
-If this is strictly smaller than the kernel, then the corresponding choice of a (not-necessarily symplectic)
-basis of the 4-torsion is returned as a 4-tuple, and the third return value contains the defining fields of 
-these 4 points as extensions over the 2-torsion field.}
+as a subgroup of GL(4,Z/4). Note a suitable conjugate lies inside ker (GSp(4,Z/4) ---> GSp(4,Z/2)).
+If it is strictly smaller, then the corresponding choice of a (not-necessarily symplectic)
+basis of the 4-torsion is returned as a 4-tuple, and the third return value contains the 
+defining fields of these 4 points as extensions over the 2-torsion field.}
     C1 := SimplifiedModel(C);
     badprimes := 2*&*BadPrimes(C1);
     f := HyperellipticPolynomials(C1);
@@ -678,5 +678,5 @@ these 4 points as extensions over the 2-torsion field.}
     assert IsElementaryAbelian(matgrp);
     assert #matgrp eq 2^#gens;
 //    return sub<kerf | mats>;
-    return sub<kerf|mats>, basis_4tors, Ls;
+    return sub<GL(4,Z4)|mats>, basis_4tors, Ls;
 end intrinsic;
