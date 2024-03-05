@@ -678,5 +678,5 @@ defining fields of these 4 points as extensions over the 2-torsion field.}
     assert IsElementaryAbelian(matgrp);
     assert #matgrp eq 2^#gens;
 //    return sub<kerf | mats>;
-    return sub<GL(4,Z4)|mats>, basis_4tors, Ls;
+    return matgrp, basis_4tors, Ls;
 end intrinsic;
