@@ -417,7 +417,7 @@ intrinsic frobconjclass(C :: CrvHyp, p :: RngIntElt) -> GrpMatElt
 end intrinsic;
 
 
-intrinsic matrixkernelofredmod2(C :: CrvHyp) -> GrpMat, Tup, SeqEnum
+intrinsic mod4imageovertwotorsionfield(C :: CrvHyp) -> GrpMat, Tup, SeqEnum
 {returns the mod-4 Galois image of Jacobian of C over the two-torsion field,
 as a subgroup of ker (GSp(4,Z/4) ---> GSp(4,Z/2)).
 If this is strictly smaller than the kernel, then the corresponding choice of a (not-necessarily symplectic)
